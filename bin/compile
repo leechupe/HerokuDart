@@ -44,7 +44,7 @@ build_pubspec() {
 
   #start pub from the /app folder to have correct symlink paths
   pub get  
-  pub upgrade
+  pub upgrade --major-versions
   dart pub global activate webdev
   if [ -d "web" ]
   then
