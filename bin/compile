@@ -50,20 +50,21 @@ build_pubspec() {
   pub upgrade --major-versions
 
   dart pub global activate webdev --version 2.7.8
-  if [ -d "web" ]
-  then
-    message "*** Running webdev build"
-    if [[ -z "$DART_BUILD_CMD" ]]
-    then
-      message 'Building with "webdev build"'
-      webdev build
-    else
-      message "Building with \"$DART_BUILD_CMD\""
-      eval $DART_BUILD_CMD
-    fi
-  else
-    message '*** Skipping pub build because "web" folder not found'
-  fi
+  
+  # if [ -d "web" ]
+  # then
+  #   message "*** Running webdev build"
+  #   if [[ -z "$DART_BUILD_CMD" ]]
+  #   then
+  #     message 'Building with "webdev build"'
+  #     webdev build
+  #   else
+  #     message "Building with \"$DART_BUILD_CMD\""
+  #     eval $DART_BUILD_CMD
+  #   fi
+  # else
+  #   message '*** Skipping pub build because "web" folder not found'
+  # fi
 }
 
 export_env_dir "$3"
