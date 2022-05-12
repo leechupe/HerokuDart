@@ -91,7 +91,7 @@ cd $BUILD_DIR
 message "-----> Build_DIR: $BUILD_DIR"
 message "-----> CACHE_DIR: $CACHE_DIR"
 message "-----> PATH: $PATH"
-message "-----> PROJECT_PATH: $PROJECT_PATH"
+# message "-----> PROJECT_PATH: $PROJECT_PATH"
 
 
 message "-----> Installing Dart VM via URL $DART_SDK_URL"
@@ -141,12 +141,12 @@ then
   message "PUBSPEC_PATH is not set. Looping through all pubspec.yaml files."
   for filename in `find . -name pubspec.yaml | grep -v dart-sdk | grep -v pub-cache`; do
       message "pubspecf path: $filename"
-    # build_pubspec $filename
+    build_pubspec $filename
   done
 else
   message "PUBSPEC_PATH is set to $BUILD_DIR/pubspec.yaml"
-  # build_pubspec $PUBSPEC_PATH
-  build_pubspec $BUILD_DIR/pubspec.yaml
+  build_pubspec $PUBSPEC_PATH
+  # build_pubspec $BUILD_DIR
 fi
 
 
