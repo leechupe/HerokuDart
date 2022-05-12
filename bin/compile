@@ -65,6 +65,8 @@ build_pubspec() {
 
 export_env_dir "$3"
 
+PROJECT_PATH=src
+
 mkdir -p "$1" "$2"
 BUILD_DIR=$(cd "$1/" && pwd)
 CACHE_DIR=$(cd "$2/" && pwd)
@@ -86,6 +88,8 @@ cd $BUILD_DIR
 message "-----> Build_DIR: $BUILD_DIR"
 message "-----> CACHE_DIR: $CACHE_DIR"
 message "-----> PATH: $PATH"
+message "-----> PROJECT_PATH: $PROJECT_PATH"
+
 
 message "-----> Installing Dart VM via URL $DART_SDK_URL"
 
@@ -122,6 +126,8 @@ cp -r $CACHE_DIR/dart-sdk /app
 DART_BIN=`ls -l /app/dart-sdk/bin/dart`
 message "-----> Dart cmd found at $DART_BIN"
 
+echo /home/user012/Desktop/folder2Start/*/
+
 CAN_DART_RUN=`/app/dart-sdk/bin/dart --version`
 message "-----> Dart reports version: $CAN_DART_RUN"
 
@@ -131,8 +137,8 @@ if [ -z "$PUBSPEC_PATH" ]
 then
   message "PUBSPEC_PATH is not set. Looping through all pubspec.yaml files."
   for filename in `find . -name pubspec.yaml | grep -v dart-sdk | grep -v pub-cache`; do
-      # message "pubspecf path: $filename"
-    build_pubspec $filename
+      message "pubspecf path: $filename"
+    # build_pubspec $filename
   done
 else
   message "PUBSPEC_PATH is set to $PUBSPEC_PATH"
