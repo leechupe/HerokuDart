@@ -83,6 +83,7 @@ if [ -z "$DART_SDK_URL" ]; then
 fi
 
 cd $BUILD_DIR
+message "-----> Build_DIR: $BUILD_DIR"
 
 message "-----> Installing Dart VM via URL $DART_SDK_URL"
 
