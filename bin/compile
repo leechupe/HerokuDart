@@ -11,12 +11,7 @@ function message {
   sync
 }
 
-if [ -f $1/.heroku_config ]; then
-  echo "=====> Loading heroku config from $1/.heroku_config"
-  source $1/.heroku_config
-else
-  message '*** heroku_config not found'
-fi
+
 
 
 # https://devcenter.heroku.com/articles/buildpack-api
@@ -134,7 +129,7 @@ cp -r $CACHE_DIR/dart-sdk /app
 DART_BIN=`ls -l /app/dart-sdk/bin/dart`
 message "-----> Dart cmd found at $DART_BIN"
 
-echo /home/user012/Desktop/folder2Start/*/
+# echo /home/user012/Desktop/folder2Start/*/
 
 CAN_DART_RUN=`/app/dart-sdk/bin/dart --version`
 message "-----> Dart reports version: $CAN_DART_RUN"
@@ -149,8 +144,9 @@ then
     # build_pubspec $filename
   done
 else
-  message "PUBSPEC_PATH is set to $PUBSPEC_PATH"
-  build_pubspec $PUBSPEC_PATH
+  message "PUBSPEC_PATH is set to $BUILD_DIR/pubspec.yaml"
+  # build_pubspec $PUBSPEC_PATH
+  build_pubspec $BUILD_DIR/pubspec.yaml
 fi
 
 
