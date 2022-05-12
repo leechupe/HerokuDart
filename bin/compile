@@ -45,7 +45,8 @@ build_pubspec() {
   #start pub from the /app folder to have correct symlink paths
   pub get  
   pub upgrade --major-versions
-  dart pub global activate webdev
+
+  dart pub global activate webdev --version 2.7.8
   if [ -d "web" ]
   then
     message "*** Running webdev build"
@@ -127,7 +128,8 @@ if [ -z "$PUBSPEC_PATH" ]
 then
   message "PUBSPEC_PATH is not set. Looping through all pubspec.yaml files."
   for filename in `find . -name pubspec.yaml | grep -v dart-sdk | grep -v pub-cache`; do
-    build_pubspec $filename
+      message "pubspecf path: $filename"
+    # build_pubspec $filename
   done
 else
   message "PUBSPEC_PATH is set to $PUBSPEC_PATH"
