@@ -84,6 +84,8 @@ fi
 
 cd $BUILD_DIR
 message "-----> Build_DIR: $BUILD_DIR"
+message "-----> CACHE_DIR: $CACHE_DIR"
+message "-----> PATH: $PATH"
 
 message "-----> Installing Dart VM via URL $DART_SDK_URL"
 
